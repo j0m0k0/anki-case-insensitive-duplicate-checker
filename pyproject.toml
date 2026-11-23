@@ -1,0 +1,9 @@
+[project]
+name = "anki-case-insensitive-duplicate-checker"
+version = "0.1.0"
+description = "Case-insensitive duplicate warnings for Anki desktop"
+requires-python = ">=3.10"
+license = { text = "AGPL-3.0-or-later" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
