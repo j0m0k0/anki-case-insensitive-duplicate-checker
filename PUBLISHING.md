@@ -4,7 +4,7 @@
 
 - **Title:** Case-Insensitive Duplicate Checker
 - **Target version:** Anki 26.09.4; list it as supported after the final in-app check
-- **Description:** This add-on prevents duplicate notes that differ only by capitalization. For example, if a note's first field contains `apple`, adding another note with `Apple`, `APPLE`, or `aPpLe` is recognized as a duplicate. Anki shows its usual duplicate highlight and **Show Duplicates** control; no extra editor UI is added. It compares only the first field of notes with the same note type. Toggle it from **Tools → Case-Insensitive Duplicate Checker**. When disabled, Anki's normal duplicate behavior is unchanged. Anki Desktop only.
+- **Description:** Prevents duplicate notes caused by capitalization differences. If a note already has `apple` in its first field, adding the same word as `Apple`, `APPLE`, or `aPpLe` is treated as a duplicate. It checks only the first field and compares notes with the same note type. Anki Desktop only.
 - **Support Page:** https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker/issues
 - **Source code:** https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker
 - **Install file:** `dist/Case-Insensitive-Duplicate-Checker.ankiaddon`

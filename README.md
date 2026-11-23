@@ -8,13 +8,11 @@
 <a href="https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker/actions/workflows/tests.yml"><img alt="Tests" src="https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker/actions/workflows/tests.yml/badge.svg"></a>
 <a href="LICENSE"><img alt="AGPL-3.0-or-later" src="https://img.shields.io/badge/license-AGPL--3.0--or--later-blue.svg"></a>
 
-This add-on prevents duplicate notes that differ only by capitalization. For example, if a note's first field contains `apple`, adding another note with `Apple`, `APPLE`, or `aPpLe` is recognized as a duplicate. Anki shows its usual duplicate highlight and **Show Duplicates** control.
+This add-on prevents duplicate notes caused by capitalization differences. If a note already has `apple` in its first field, adding the same word as `Apple`, `APPLE`, or `aPpLe` is treated as a duplicate.
 
 </div>
 
-## Anki's familiar duplicate UI
-
-The add-on uses Anki's own duplicate highlight and **Show Duplicates** control. It does not add a separate warning or editor element.
+## Enable in Anki
 
 <p align="center">
   <img src="docs/images/enable-from-tools-menu.png" alt="The checked Case-Insensitive Duplicate Checker option in Anki's Tools menu" width="330">
