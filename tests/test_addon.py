@@ -75,6 +75,14 @@ class FakeMenu:
         pass
 
 
+class FakeWeb:
+    def __init__(self):
+        self.scripts = []
+
+    def eval(self, script):
+        self.scripts.append(script)
+
+
 class FakeMainWindow:
     def __init__(self):
         self.addonManager = FakeAddonManager()
@@ -146,6 +154,18 @@ class AddonIntegrationTests(unittest.TestCase):
         self.assertFalse(self.addon.mw.addonManager.config["enabled"])
         self.addon.checker.set_enabled(True)
         self.assertTrue(self.addon.mw.addonManager.config["enabled"])
+
+    def test_legacy_add_editor_gets_case_insensitive_warning(self):
+        editor = types.SimpleNamespace(
+            note=types.SimpleNamespace(fields=["Agony", "gloss"], mid=7, id=0),
+            web=FakeWeb(),
+        )
+        self.addon.checker._on_editor_init(editor)
+        self.addon.checker._poll_editor(editor)
+        self.assertTrue(
+            any("Case-insensitive duplicate" in script for script in editor.web.scripts)
+        )
+        self.addon.checker._cleanup_editor(id(editor))
 
 
 if __name__ == "__main__":

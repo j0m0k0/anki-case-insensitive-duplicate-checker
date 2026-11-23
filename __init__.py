@@ -57,9 +57,11 @@ class DuplicateChecker:
         tooltip("Case-insensitive duplicate checking " + ("on" if enabled else "off"))
 
     def _on_editor_init(self, editor: object) -> None:
-        # NewEditor exposes get_note_info(); old editor implementations are
-        # intentionally ignored instead of patching private editor internals.
-        if not callable(getattr(editor, "get_note_info", None)):
+        # The Svelte editor exposes get_note_info(); the legacy editor keeps
+        # the in-progress Note on .note. Support both Add window variants.
+        if not callable(getattr(editor, "get_note_info", None)) and not hasattr(
+            editor, "note"
+        ):
             return
         web = getattr(editor, "web", None)
         if web is None:
@@ -148,8 +150,6 @@ class DuplicateChecker:
         if not _config()["enabled"] or not mw.col:
             return
         get_note_info: Callable = getattr(editor, "get_note_info", None)
-        if not callable(get_note_info):
-            return
 
         def on_info(note_info: object) -> None:
             try:
@@ -163,7 +163,15 @@ class DuplicateChecker:
             self._set_message(editor, message)
 
         try:
-            get_note_info(on_info)
+            if callable(get_note_info):
+                get_note_info(on_info)
+            else:
+                note = getattr(editor, "note", None)
+                if note is not None:
+                    message = self._duplicate_message(
+                        int(note.mid), list(note.fields), int(note.id)
+                    )
+                    self._set_message(editor, message)
         except Exception:
             log.debug("Could not read editor fields", exc_info=True)
 

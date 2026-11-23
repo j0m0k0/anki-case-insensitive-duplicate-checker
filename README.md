@@ -21,4 +21,4 @@ The build writes `dist/Case-Insensitive-Duplicate-Checker.ankiaddon`. No third-p
 
 ## Compatibility
 
-Targets Anki 26.09 and later, using its modern editor hooks. This add-on supplements Anki's native duplicate checker instead of replacing its internal check.
+Targets Anki 26.09 and later, supporting both the modern and legacy desktop note editors. This add-on supplements Anki's native duplicate checker instead of replacing its internal check.
