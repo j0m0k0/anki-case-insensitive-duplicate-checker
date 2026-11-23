@@ -3,7 +3,7 @@
 ## Upload details
 
 - **Title:** Case-Insensitive Duplicate Checker
-- **Anki version:** 26.09.4 (macOS); update this after confirming other versions
+- **Target version:** Anki 26.09.4; list it as supported after the final in-app check
 - **Description:** Makes Anki's duplicate check case-insensitive for the first field of a note. For example, `agony`, `Agony`, `aGony`, and `AGONY` are treated as duplicates. Uses Anki's existing duplicate highlight and **Show Duplicates** control, with no extra editor UI. Toggle it from **Tools → Case-Insensitive Duplicate Checker**. Checks notes of the same note type. Desktop Anki only.
 - **Source code:** Optional. No GitHub remote is configured for this local repository.
 - **Install file:** `dist/Case-Insensitive-Duplicate-Checker.ankiaddon`
