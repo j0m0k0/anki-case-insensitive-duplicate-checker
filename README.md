@@ -1,14 +1,14 @@
 # Case-Insensitive Duplicate Checker
 
-Adds a live warning when the first field of a note matches another note of the same note type after ignoring capitalization. For example, `Agony`, `aGony`, and `AGONY` are flagged if `agony` already exists.
+Makes Anki's existing duplicate checker case-insensitive for the first field of a note. If `agony` exists, entering `Agony`, `aGony`, or `AGONY` is reported using Anki's own duplicate field highlight and **Show Duplicates** control. The add-on adds no duplicate warning, button, or other editor element.
 
 ## Install and toggle
 
-Build the `.ankiaddon` archive with `python build_addon.py`, then in Anki choose **Tools → Add-ons → Install from file**, select the generated file in `dist/`, and restart. To toggle the extra check, choose **Tools → Case-Insensitive Duplicate Checker**. Anki's own duplicate warning remains unchanged; this add-on adds a separate warning and does not block adding a note.
+Build the `.ankiaddon` archive with `python build_addon.py`, then in Anki choose **Tools → Add-ons → Install from file**, select the generated file in `dist/`, and restart. Toggle the behavior with **Tools → Case-Insensitive Duplicate Checker**. When disabled, Anki's duplicate checking works normally.
 
 ## Scope
 
-Checks the first field within the same note type, strips HTML, and applies Unicode case folding and NFC normalization. The note currently being edited is excluded. Works with Anki desktop on Windows, macOS, and Linux. Anki add-ons do not run on AnkiMobile or AnkiDroid.
+Checks the first field within the same note type, strips HTML, and applies Unicode case folding and NFC normalization. Exact spelling duplicates remain handled by Anki. The note currently being edited is excluded. Works with Anki desktop on Windows, macOS, and Linux. Anki add-ons do not run on AnkiMobile or AnkiDroid.
 
 ## Test and build
 
@@ -21,4 +21,4 @@ The build writes `dist/Case-Insensitive-Duplicate-Checker.ankiaddon`. No third-p
 
 ## Compatibility
 
-Targets Anki 26.09 and later, supporting both the modern and legacy desktop note editors. This add-on supplements Anki's native duplicate checker instead of replacing its internal check.
+Targets Anki 26.09 and later, supporting both the modern and legacy desktop note editors. It reports case-only matches through Anki's native duplicate status, so Anki controls the editor appearance.

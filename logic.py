@@ -4,6 +4,7 @@ from __future__ import annotations
 import unicodedata
 from collections.abc import Callable
 from html.parser import HTMLParser
+from threading import RLock
 from typing import Any
 
 
@@ -77,20 +78,38 @@ def case_variant_matches(
     ]
 
 
+def case_variant_note_ids(
+    entries: dict[str, list[tuple[int, str, str]]],
+    key: str,
+    candidate: str,
+    current_note_id: int | None = None,
+) -> list[int]:
+    """Return IDs for capitalization variants, excluding the current/exact note."""
+    candidate_text = visible_text(candidate)
+    return [
+        note_id
+        for note_id, _normalized, text in entries.get(key, [])
+        if note_id != current_note_id and visible_text(text) != candidate_text
+    ]
+
+
 class DuplicateIndex:
     """Lazy per-note-type cache of normalized first-field values."""
 
     def __init__(self) -> None:
         self._entries: dict[int, dict[str, list[tuple[int, str, str]]]] = {}
+        self._lock = RLock()
 
     def clear(self) -> None:
-        self._entries.clear()
+        with self._lock:
+            self._entries.clear()
 
     def for_notetype(
         self,
         notetype_id: int,
         loader: Callable[[], dict[str, list[tuple[int, str, str]]]],
     ) -> dict[str, list[tuple[int, str, str]]]:
-        if notetype_id not in self._entries:
-            self._entries[notetype_id] = loader()
-        return self._entries[notetype_id]
+        with self._lock:
+            if notetype_id not in self._entries:
+                self._entries[notetype_id] = loader()
+            return self._entries[notetype_id]
