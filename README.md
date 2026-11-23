@@ -26,3 +26,7 @@ Targets Anki 26.09 and later, supporting both the modern and legacy desktop note
 ## License
 
 Licensed under the GNU Affero General Public License v3.0 or any later version (AGPL-3.0-or-later). See [LICENSE](LICENSE).
+
+## Feedback and contributions
+
+If this add-on is useful, please [star the GitHub repository](https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker). Report bugs or suggest features in [GitHub Issues](https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker/issues).

@@ -5,7 +5,8 @@
 - **Title:** Case-Insensitive Duplicate Checker
 - **Target version:** Anki 26.09.4; list it as supported after the final in-app check
 - **Description:** Makes Anki's duplicate check case-insensitive for the first field of a note. For example, `agony`, `Agony`, `aGony`, and `AGONY` are treated as duplicates. Uses Anki's existing duplicate highlight and **Show Duplicates** control, with no extra editor UI. Toggle it from **Tools → Case-Insensitive Duplicate Checker**. Checks notes of the same note type. Desktop Anki only.
-- **Source code:** Optional for AnkiWeb. No GitHub remote is configured for this local repository.
+- **Support Page:** https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker/issues
+- **Source code:** https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker
 - **Install file:** `dist/Case-Insensitive-Duplicate-Checker.ankiaddon`
 
 ## Upload steps
@@ -21,11 +22,11 @@ The builder packages only the four required root files, so local `__pycache__`, 
 
 The source is licensed under AGPL-3.0-or-later and includes the full license text. To make it public:
 
-1. On GitHub, create a **public** repository. Leave it empty; do not initialize it with a README, license, or `.gitignore` because this local repository already has those files and its commit history.
-2. In this project folder, connect the new repository and push the existing `main` branch:
+1. The public repository is `https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker`.
+2. In this project folder, connect it as `origin` and push the existing `main` branch:
 
    ```sh
-   git remote add origin https://github.com/YOUR-USERNAME/REPOSITORY-NAME.git
+   git remote add origin https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker.git
    git push -u origin main
    ```
 
