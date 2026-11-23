@@ -8,7 +8,7 @@
 <a href="https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker/actions/workflows/tests.yml"><img alt="Tests" src="https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker/actions/workflows/tests.yml/badge.svg"></a>
 <a href="LICENSE"><img alt="AGPL-3.0-or-later" src="https://img.shields.io/badge/license-AGPL--3.0--or--later-blue.svg"></a>
 
-Already have `apple` in your deck? If you add `Apple` or `APPLE`, Anki flags it as a duplicate.
+This add-on prevents duplicate notes that differ only by capitalization. For example, if a note's first field contains `apple`, adding another note with `Apple`, `APPLE`, or `aPpLe` is recognized as a duplicate. Anki shows its usual duplicate highlight and **Show Duplicates** control.
 
 </div>
 
@@ -29,7 +29,7 @@ Enable or disable it from **Tools → Case-Insensitive Duplicate Checker**. A ch
 - Field text with HTML formatting ignored.
 - The note currently being edited is excluded from matching.
 
-Exact-spelling duplicates continue to be handled by Anki's built-in checker. Add-ons run on Anki Desktop; AnkiMobile and AnkiDroid do not support them.
+Only the first field is compared; other fields are ignored. Exact-spelling duplicates continue to be handled by Anki's built-in checker. Toggle the case-insensitive check from **Tools → Case-Insensitive Duplicate Checker**. When disabled, Anki's normal duplicate behavior is unchanged. Add-ons run on Anki Desktop; AnkiMobile and AnkiDroid do not support them.
 
 ## Install
 
