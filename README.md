@@ -12,14 +12,6 @@ If `agony` is already in your collection, `Agony`, `aGony`, and `AGONY` are flag
 
 </div>
 
-## ⭐ Star history
-
-See how the repository's stars grow over time:
-
-<a href="https://star-history.com/#j0m0k0/anki-case-insensitive-duplicate-checker&Date">
-  <img alt="Hand-drawn chart of GitHub stars over time" src="https://api.star-history.com/svg?repos=j0m0k0/anki-case-insensitive-duplicate-checker&amp;type=Date" width="600">
-</a>
-
 ## Anki's familiar duplicate UI
 
 The add-on uses Anki's own duplicate highlight and **Show Duplicates** control. It does not add a separate warning or editor element.
