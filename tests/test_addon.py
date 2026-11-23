@@ -86,11 +86,11 @@ class AddonIntegrationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         anki = types.ModuleType("anki")
-        anki.gui_hooks = types.SimpleNamespace(
-            editor_did_init=Hook(), operation_did_execute=Hook()
-        )
         aqt = types.ModuleType("aqt")
         aqt.mw = FakeMainWindow()
+        aqt.gui_hooks = types.SimpleNamespace(
+            editor_did_init=Hook(), operation_did_execute=Hook()
+        )
         qt = types.ModuleType("aqt.qt")
         qt.QAction = FakeAction
         qt.QTimer = FakeTimer

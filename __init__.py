@@ -5,8 +5,7 @@ import json
 import logging
 from collections.abc import Callable
 
-from anki import gui_hooks
-from aqt import mw
+from aqt import gui_hooks, mw
 from aqt.qt import QAction, QTimer
 from aqt.utils import tooltip
 
