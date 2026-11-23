@@ -4,7 +4,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / "dist" / "Case-Insensitive-Duplicate-Checker.ankiaddon"
-ADDON_FILES = ("__init__.py", "logic.py", "config.json")
+ADDON_FILES = ("__init__.py", "logic.py", "config.json", "manifest.json")
 
 
 def build() -> Path:
