@@ -1,32 +1,65 @@
+<div align="center">
+
 # Case-Insensitive Duplicate Checker
 
-Makes Anki's existing duplicate checker case-insensitive for the first field of a note. If `agony` exists, entering `Agony`, `aGony`, or `AGONY` is reported using Anki's own duplicate field highlight and **Show Duplicates** control. The add-on adds no duplicate warning, button, or other editor element.
+**Catch duplicates even when capitalization differs.**
 
-## Install and toggle
+<a href="https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/j0m0k0/anki-case-insensitive-duplicate-checker?style=social"></a>
+<a href="https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker/actions/workflows/tests.yml"><img alt="Tests" src="https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker/actions/workflows/tests.yml/badge.svg"></a>
+<a href="LICENSE"><img alt="AGPL-3.0-or-later" src="https://img.shields.io/badge/license-AGPL--3.0--or--later-blue.svg"></a>
 
-Build the `.ankiaddon` archive with `python build_addon.py`, then in Anki choose **Tools → Add-ons → Install from file**, select the generated file in `dist/`, and restart. Toggle the behavior with **Tools → Case-Insensitive Duplicate Checker**. When disabled, Anki's duplicate checking works normally.
+If `agony` is already in your collection, `Agony`, `aGony`, and `AGONY` are flagged as duplicates while you add a note.
 
-## Scope
+</div>
 
-Checks the first field within the same note type, strips HTML, and applies Unicode case folding and NFC normalization. Exact spelling duplicates remain handled by Anki. The note currently being edited is excluded. Works with Anki desktop on Windows, macOS, and Linux. Anki add-ons do not run on AnkiMobile or AnkiDroid.
+## Anki's familiar duplicate UI
 
-## Test and build
+The add-on uses Anki's own duplicate highlight and **Show Duplicates** control. It does not add a separate warning or editor element.
+
+<p align="center">
+  <img src="docs/images/enable-from-tools-menu.png" alt="The checked Case-Insensitive Duplicate Checker option in Anki's Tools menu" width="330">
+</p>
+
+Enable or disable it from **Tools → Case-Insensitive Duplicate Checker**. A checkmark means it is on.
+
+## What it checks
+
+- The first field of notes of the same note type.
+- Capitalization differences, including Unicode case variants.
+- Field text with HTML formatting ignored.
+- The note currently being edited is excluded from matching.
+
+Exact-spelling duplicates continue to be handled by Anki's built-in checker. Add-ons run on Anki Desktop; AnkiMobile and AnkiDroid do not support them.
+
+## Install
+
+Build an installable package from the source:
 
 ```sh
-python -m unittest discover -s tests -v
-python build_addon.py
+git clone https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker.git
+cd anki-case-insensitive-duplicate-checker
+python3 build_addon.py
 ```
 
-The build writes `dist/Case-Insensitive-Duplicate-Checker.ankiaddon`. No third-party Python packages are required. The GitHub Actions workflow runs the tests and packaging check on Windows, macOS, and Linux.
+Then in Anki, choose **Tools → Add-ons → Install from file**, select `dist/Case-Insensitive-Duplicate-Checker.ankiaddon`, and restart Anki.
+
+## Build and test
+
+```sh
+python3 -m unittest discover -s tests -v
+python3 build_addon.py
+```
+
+The package is written to `dist/Case-Insensitive-Duplicate-Checker.ankiaddon`. It contains only the required add-on files and needs no third-party Python packages. GitHub Actions runs the tests and packaging check on Windows, macOS, and Linux with Python 3.10 and 3.13.
 
 ## Compatibility
 
-Targets Anki 26.09 and later, supporting both the modern and legacy desktop note editors. It reports case-only matches through Anki's native duplicate status, so Anki controls the editor appearance.
-
-## License
-
-Licensed under the GNU Affero General Public License v3.0 or any later version (AGPL-3.0-or-later). See [LICENSE](LICENSE).
+Targeted at Anki 26.09 and later. Check the supported version range on the AnkiWeb listing before installing; add-ons can require updates when Anki changes its internals.
 
 ## Feedback and contributions
 
-If this add-on is useful, please [star the GitHub repository](https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker). Report bugs or suggest features in [GitHub Issues](https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker/issues).
+If this add-on helps, please [⭐ star the repository](https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker). Found a bug or have a feature idea? [Open an issue](https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker/issues). Contributions are welcome.
+
+## License
+
+Licensed under the [GNU Affero General Public License v3.0 or later](LICENSE) (AGPL-3.0-or-later).
