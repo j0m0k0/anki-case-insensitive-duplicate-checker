@@ -22,3 +22,7 @@ The build writes `dist/Case-Insensitive-Duplicate-Checker.ankiaddon`. No third-p
 ## Compatibility
 
 Targets Anki 26.09 and later, supporting both the modern and legacy desktop note editors. It reports case-only matches through Anki's native duplicate status, so Anki controls the editor appearance.
+
+## License
+
+Licensed under the GNU Affero General Public License v3.0 or any later version (AGPL-3.0-or-later). See [LICENSE](LICENSE).
