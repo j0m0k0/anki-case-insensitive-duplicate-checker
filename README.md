@@ -8,7 +8,7 @@
 <a href="https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker/actions/workflows/tests.yml"><img alt="Tests" src="https://github.com/j0m0k0/anki-case-insensitive-duplicate-checker/actions/workflows/tests.yml/badge.svg"></a>
 <a href="LICENSE"><img alt="AGPL-3.0-or-later" src="https://img.shields.io/badge/license-AGPL--3.0--or--later-blue.svg"></a>
 
-If `agony` is already in your collection, `Agony`, `aGony`, and `AGONY` are flagged as duplicates while you add a note.
+Already have `apple` in your deck? If you add `Apple` or `APPLE`, Anki flags it as a duplicate.
 
 </div>
 
